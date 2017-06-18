@@ -59,6 +59,11 @@ end
 savevaluefunction!(store::Dict{Symbol, Any}, sp::JuMP.Model) = storevaluefunction!(store, valueoracle(sp), sp)
 storevaluefunction!{C}(store::Dict{Symbol, Any}, ::DefaultValueFunction{C}, sp::JuMP.Model)= nothing
 
+"""
+    simulate(m, N, vars)
+
+Perform a historical simulation of the policy of the solved SDDPModel `m`.
+"""
 function simulate{C}(m::SDDPModel{DefaultValueFunction{C}},
         variables::Vector{Symbol} = Symbol[];
         noises::Vector{Int}    = zeros(Int, length(m.stages)),
@@ -74,6 +79,11 @@ function simulate{C}(m::SDDPModel{DefaultValueFunction{C}},
     return store
 end
 
+"""
+    simulate(m, N, vars)
+
+Simulate the policy of the solved SDDPModel `m`.
+"""
 function simulate(m::SDDPModel, N::Int, variables::Vector{Symbol}=Symbol[])
     y = Dict{Symbol, Any}[]
     for i in 1:N

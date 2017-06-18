@@ -410,7 +410,7 @@ control the solution process.
     * `Serial()` - solve using a serial algorithm
     Default chooses automatically based on the number of available processors.
  * `reduce_memory_footprint::Bool`:
-    Implements the idea proposed in https://github.com/JuliaOpt/JuMP.jl/issues/969#issuecomment-282191105
+    Implements the idea proposed [here](https://github.com/JuliaOpt/JuMP.jl/issues/969#issuecomment-282191105)
     to reduce the memory consumption when running SDDP. This is an issue if you
     wish to save the model `m` to disk since it discards important information.
     Defaults to `false`.
@@ -418,7 +418,7 @@ control the solution process.
     Relative filename to write discovered cuts to disk. Defaults to `""` (no cuts written)
 
 # Returns
- * `status::Symbol`:
+ * `termination_status::Symbol`:
     Reason for termination. One of
     * `:solving`
     * `:interrupted`

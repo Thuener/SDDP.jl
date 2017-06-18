@@ -38,3 +38,11 @@ This accepts a number of keyword arguments to control the solution process.
 ```@docs
 solve
 ```
+
+### Simulate
+
+### Visualise
+
+```@docs
+@visualise
+```
